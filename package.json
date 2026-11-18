@@ -1,14 +1,14 @@
 {
   "name": "api-typescript",
   "version": "1.0.0",
-  "description": "",
+  "description": "API Web feita com Typescript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx nodemon src/server.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Thiago Nóbrega",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^18.0.10",
