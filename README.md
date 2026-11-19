@@ -2,8 +2,16 @@ Comandos utilizados para iniciar este projeto:
 
 npm init -y
 npm i express dotenv
-npm i typescript ts-node nodemon @types/express @types/dotenv -D
+npm i typescript tsx @types/node @types/express @types/dotenv -D
 npx tsc --init
+
+Arquivos criados no início do projeto:
+.gitignore -> contendo: node_modules .env e dist/
+.env
+
+Pastas criadas no início do projeto:
+dist
+src
 
 ---
 
