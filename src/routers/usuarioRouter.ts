@@ -4,8 +4,10 @@ import usuarioController from "../controllers/usuarioController.js";
 
 const router = express.Router();
 
-router.get("/:id", usuarioController.getUsuario);
-
-router.get("/", usuarioController.getAllUsuarios);
+router.get("/:id", usuarioController.getUsuario); // mais específico
+router.get("/", usuarioController.getAllUsuarios); // mais genérico
+// a ordem começa pela rota mais específica seguida da mais genérica,
+// pois o express avalia as rotas na ordem.
+router.post("/", usuarioController.postUsuario);
 
 export default router;

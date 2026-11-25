@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/", usuarioRouter);
+app.use("/", usuarioRouter);
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.send("Hello World");
