@@ -21,4 +21,14 @@ async function postUsuario(req: Request, res: Response, next: NextFunction) {
   res.status(201).json(resultado);
 }
 
-export default { getAllUsuarios, getUsuario, postUsuario };
+async function deleteUsuario(req: Request, res: Response, next: NextFunction) {
+  const id = parseInt(req.params.id as string);
+  const resultado = await usuarioRepository.deleteUsuario(id);
+  resultado ? res.sendStatus(204) : res.sendStatus(404);
+  // o operador ternário faz a mesma que coisa que:
+  // if (resultado) {
+  // res.sendStatus(204);
+  // } else {res.sendStatus(404)};
+}
+
+export default { getAllUsuarios, getUsuario, postUsuario, deleteUsuario };

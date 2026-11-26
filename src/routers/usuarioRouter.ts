@@ -9,5 +9,6 @@ router.get("/", usuarioController.getAllUsuarios); // mais genérico
 // a ordem começa pela rota mais específica seguida da mais genérica,
 // pois o express avalia as rotas na ordem.
 router.post("/", usuarioController.postUsuario);
+router.delete("/:id", usuarioController.deleteUsuario);
 
 export default router;

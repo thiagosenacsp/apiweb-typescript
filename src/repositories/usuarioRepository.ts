@@ -29,4 +29,39 @@ async function addUsuario(usuario: Usuario): Promise<Usuario> {
   });
 }
 
-export default { getUsuario, getAllUsuarios, addUsuario };
+async function deleteUsuario(id: number): Promise<boolean> {
+  return new Promise((resolve, reject) => {
+    const usuarioIndex = usuarios.findIndex((usuario) => usuario.id === id);
+    if (usuarioIndex === -1) {
+      return resolve(false);
+    }
+    usuarios.splice(usuarioIndex, 1);
+    return resolve(true);
+  });
+}
+
+async function updateUsuario(
+  id: number,
+  dadosUsuario: Usuario,
+): Promise<Usuario> {
+  return new Promise((resolve, reject) => {
+    const usuarioIndex = usuarios.findIndex((usuario) => usuario.id === id);
+    if (usuarioIndex === -1) {
+      return reject(new Error("Usuário não encontrado"));
+    }
+    if (
+      dadosUsuario.nome &&
+      usuarios[usuarioIndex].nome !== dadosUsuario.nome
+    ) {
+      usuarios[usuarioIndex].nome = dadosUsuario.nome;
+    }
+    if (
+      dadosUsuario.senha &&
+      usuarios[usuarioIndex].senha !== dadosUsuario.senha
+    ) {
+      usuarios[usuarioIndex].senha = dadosUsuario.senha;
+    }
+  });
+}
+
+export default { getUsuario, getAllUsuarios, addUsuario, deleteUsuario };
