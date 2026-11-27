@@ -31,4 +31,17 @@ async function deleteUsuario(req: Request, res: Response, next: NextFunction) {
   // } else {res.sendStatus(404)};
 }
 
-export default { getAllUsuarios, getUsuario, postUsuario, deleteUsuario };
+async function updateUsuario(req: Request, res: Response, next: NextFunction) {
+  const id = parseInt(req.params.id as string);
+  const dadosUsuario = req.body as Usuario;
+  const resultado = await usuarioRepository.updateUsuario(id, dadosUsuario);
+  res.status(200).json(resultado);
+}
+
+export default {
+  getAllUsuarios,
+  getUsuario,
+  postUsuario,
+  deleteUsuario,
+  updateUsuario,
+};

@@ -61,7 +61,14 @@ async function updateUsuario(
     ) {
       usuarios[usuarioIndex].senha = dadosUsuario.senha;
     }
+    return resolve(usuarios[usuarioIndex]);
   });
 }
 
-export default { getUsuario, getAllUsuarios, addUsuario, deleteUsuario };
+export default {
+  getUsuario,
+  getAllUsuarios,
+  addUsuario,
+  deleteUsuario,
+  updateUsuario,
+};
